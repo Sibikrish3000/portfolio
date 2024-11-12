@@ -4,7 +4,7 @@ name: Deploy React App to GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # Change this to the branch you want to deploy from
+    branches: ["master"]  # Change this to the branch you want to deploy from
   workflow_dispatch:  # Allows manual deployment from the Actions tab
 
 permissions:
