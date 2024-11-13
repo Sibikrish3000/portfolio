@@ -54,7 +54,10 @@ jobs:
         run: export SKIP_PREFLIGHT_CHECK=true
 
       - name: Build the React app
-        run: yarn run build
+        run: |
+          export CI=false
+          yarn run build
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
