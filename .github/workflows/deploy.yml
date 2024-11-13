@@ -36,12 +36,12 @@ jobs:
         run: npm install
 
       - name: Build the React app
-        run: npm run build
+        run: npm start
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: './build'  # Upload only the build directory
+          path: '\.'  # Upload only the build directory
 
       - name: Deploy to GitHub Pages
         id: deployment
