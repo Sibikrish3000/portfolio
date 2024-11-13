@@ -37,8 +37,9 @@ jobs:
         
       - name: yarn info
         run: npm info
-      - name: yarn add
-        run: npm install -g yarn
+        
+      - name: yarn upgrade 
+        run: yarn upgrade yarn
         
       - name: yarn add
         run: yarn add yarn
