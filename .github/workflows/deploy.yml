@@ -34,18 +34,19 @@ jobs:
 
       - name: yarn install
         run: npm install -g yarn
-        
-      - name: yarn info
-        run: npm info
-        
-      - name: yarn upgrade 
-        run: yarn upgrade yarn
-        
-      - name: yarn add
-        run: yarn add yarn
 
       - name: Install dependencies
         run: yarn install
+
+      
+      - name: yarn info
+        run: yarn info
+
+      - name: yarn add
+        run: yarn add yarn
+
+      - name: yarn upgrade 
+        run: yarn upgrade yarn
 
       - name: Build the React app
         run: yarn run build
