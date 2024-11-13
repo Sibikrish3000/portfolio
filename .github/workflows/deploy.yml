@@ -48,6 +48,9 @@ jobs:
       - name: yarn upgrade 
         run: yarn upgrade yarn
 
+      - name: node option 
+        run: export NODE_OPTIONS=--openssl-legacy-provider
+
       - name: Build the React app
         run: yarn run build
 
