@@ -35,8 +35,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      #- name: Build the React app
-       # run: npm start
+      - name: Build the React app
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
