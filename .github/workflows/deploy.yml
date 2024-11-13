@@ -55,6 +55,7 @@ jobs:
 
       - name: Build the React app
         run: |
+          rm -r ./build
           export CI=false
           yarn run build
 
