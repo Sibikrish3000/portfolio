@@ -1,5 +1,6 @@
 /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 /*===== VARIABLES CSS =====*/
 :root {
   --header-height: 3rem;
@@ -316,16 +317,16 @@ img {
   z-index: var(--z-back);
 }
 .skills__py {
-  width: 50%;
+  width: 90%;
 }
 .skills__sql {
-  width: 30%;
+  width: 70%;
 }
 .skills__vs {
-  width: 25%;
+  width: 75%;
 }
 .skills__ml {
-  width: 10%;
+  width: 95%;
 }
 .skills__img {
   border-radius: 0.5rem;
@@ -334,38 +335,43 @@ img {
 /* ===== WORK =====*/
 .work__container {
   row-gap: 2rem;
+  
 }
 .overlay-text {
   position: absolute;
-  top: 50%; /* Adjust this value to vertically center the text */
-  left: 50%; /* Adjust this value to horizontally center the text */
-  transform: translate(-50%, -50%); /* Center the text precisely */
-  background-color: #; /* Set the background color with some transparency */
-  color: #000000 ; /* Set the text color */
-  padding: 10px 20px; /* Add some padding to the text */
+  top: 50%; /* Vertically centers the text */
+  left: 50%; /* Horizontally centers the text */
+  transform: translate(-50%, -50%); /* Centers the text precisely */
+  background-color: rgba(0, 0, 0, 0); /* Adds a transparent black background */
+  color: #161515; /* White text color */
+  padding: 10px 20px; /* Adds padding around the text */
   font-size: var(--normal-font-size); 
   font-weight: 520;
-  
-  /* Adjust the font size */
-/*   text-align: center; /* Center the text horizontally */
+  text-align: center; /* Centers the text horizontally */
 }
 
-.overlay-text-sub{
+.overlay-text-sub {
   position: absolute;
-  top: 55%; 
-  left: 50%; 
-  transform: translate(-50%, -20%); 
-  background-color: #; 
-  color: #000000 ; 
-  padding: 10px 20px; 
-  font-size: var(--normal-font-size);
-  
+  top: 60%; /* Moves the sub-text slightly lower */
+  left: 50%; /* Horizontally centers the sub-text */
+  transform: translate(-50%, -50%); /* Adjusts position to be centered */
+  background-color: rgba(0, 0, 0, 0); /* Transparent background for sub-text */
+  color: #161616; /* black text color */
+  padding: 5px 10px; /* Adds padding for sub-text */
+  font-size: var(--normal-font-size); 
+  font-weight: 400; /* Lighter font weight for sub-text */
+  text-align: center; /* Centers the sub-text horizontally */
 }
+
 
 .work__img {
-  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15); 
   border-radius: 0.5rem;
   overflow: hidden;
+  position: relative; /* Ensures the overlay is positioned relative to the image */
+  display: inline-block; /* Keeps the images in a grid layout */
+
+  
 }
 .work__img img {
   transition: 1s;
