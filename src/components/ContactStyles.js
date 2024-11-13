@@ -18,7 +18,7 @@ export const ContainerSucces = styled.div`
     display: block; /* Centers the button */
   }
 
-  button:disabled {
+  contact__button button, button:disabled {
     filter: brightness(0.8);
     cursor: not-allowed;
   }

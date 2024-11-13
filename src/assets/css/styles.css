@@ -400,6 +400,11 @@ img {
   margin-left: auto;
 }
 
+contact__button button, button:disabled {
+  filter: brightness(0.8);
+  cursor: not-allowed;
+}
+
 /* ===== FOOTER =====*/
 .footer {
   background-color: var(--second-color);
