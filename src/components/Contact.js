@@ -14,15 +14,22 @@ const Contact = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("message", message);
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      message: document.getElementById('message').value,
+    };
+
+    const bearerToken = 'Black-Swordsman';
 
     try {
-      const response = await fetch("https://7cb11f0196db781a064b153f4af36d9a.m.pipedream.net", {
+      const response = await fetch("https://automated-email-sibikrish.vercel.app/send-email", {
         method: "POST",
-        body: formData
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${bearerToken}`,
+        },
+        body: JSON.stringify(formData),
       });
 
       if (await response.ok) {
