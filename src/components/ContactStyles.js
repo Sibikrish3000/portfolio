@@ -7,13 +7,19 @@ export const ContainerSucces = styled.div`
   button {
     border-radius: 0.6rem;
     padding: 1rem;
-    margin-center: auto;
-    font-size: .938rem;
+    margin: 0 auto; /* Changed to properly center the button */
+    font-size: 0.938rem;
     text-transform: uppercase;
     text-align: center;
     color: #fbfbfb;
     background-color: hsl(224, 89%, 60%);
     border: none;
     cursor: pointer;
+    display: block; /* Centers the button */
+  }
+
+  button:disabled {
+    filter: brightness(0.8);
+    cursor: not-allowed;
   }
 `;
