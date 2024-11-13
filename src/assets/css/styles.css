@@ -165,6 +165,9 @@ img {
     background-color: #0d1730fc;
     transition: 0.5s;
   }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 .nav__item {
   margin-bottom: var(--mb-4);
