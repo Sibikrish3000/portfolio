@@ -32,11 +32,22 @@ jobs:
         with:
           node-version: '20.x'
 
+      - name: yarn install
+        run: npm install -g yarn
+        
+      - name: yarn info
+        run: npm info
+      - name: yarn add
+        run: npm install -g yarn
+        
+      - name: yarn add
+        run: yarn add yarn
+
       - name: Install dependencies
-        run: npm install
+        run: yarn install
 
       - name: Build the React app
-        run: npm run build
+        run: yarn run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
