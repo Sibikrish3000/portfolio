@@ -49,7 +49,7 @@ jobs:
         run: yarn upgrade yarn
 
       - name: node option 
-        run: export NODE_OPTIONS=--openssl-legacy-provider
+        run: export NODE_OPTIONS=--openssl-legacy-provider & export SKIP_PREFLIGHT_CHECK=true
 
       - name: Build the React app
         run: yarn run build
