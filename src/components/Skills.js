@@ -12,7 +12,7 @@ const Skills = () => {
               {/* Example Skill - SQL */}
               <div className="skills__data">
                 <div className="skills__names">
-                  <img src='./assets/svg/sql.svg' />
+                  <img src='./assets/svg/sql.svg' alt=" "/>
                   <span className="skills__name">SQL</span>
                 </div>
                 <div className="skills__bar skills__sql"></div>
@@ -22,7 +22,7 @@ const Skills = () => {
               {/* Example Skill - Data Visualization */}
               <div className="skills__data">
                 <div className="skills__names">
-                <img src='./assets/svg/viz.svg' />
+                <img src='./assets/svg/viz.svg' alt=" "/>
                   <span className="skills__name">Data Visualization</span>
                 </div>
                 <div className="skills__bar skills__vs"></div>
@@ -32,7 +32,7 @@ const Skills = () => {
               {/* Example Skill - Python */}
               <div className="skills__data">
                 <div className="skills__names">
-                <img src='./assets/svg/python.svg' />
+                <img src='./assets/svg/python.svg' alt=" "/>
                   <span className="skills__name">Python</span>
                 </div>
                 <div className="skills__bar skills__py"></div>
@@ -41,7 +41,7 @@ const Skills = () => {
 
               <div className="skills__data">
                 <div className="skills__names">
-                <img src='./assets/svg/ml.svg' />
+                <img src='./assets/svg/ml.svg' alt=" " />
                   <span className="skills__name">&nbsp;&nbsp;&nbsp;Machine Learning</span>
                 </div>
                 <div className="skills__bar skills__ml"></div>

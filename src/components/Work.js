@@ -9,12 +9,12 @@ const Work = () => {
           <img src="assets/img/bigdata.png" alt="" />
           <span className="overlay-text">Creditcard&nbsp;Fraud Detection</span>
         </a>
-        <a href="#works" className="work__img">
-          <img src="assets/img/ai.png" alt="https://github.com/Sibikrish3000/sms-spam-detection" />
+        <a href="https://github.com/Sibikrish3000/sms-spam-detection" className="work__img">
+          <img src="assets/img/ai.png" alt="" />
           <div className="overlay-text">SMS&nbsp;Spam Detection</div>
         </a>
-        <a href="#works" className="work__img">
-          <img src="assets/img/datacheck.png" alt="https://github.com/Sibikrish3000/movie-genre-classification" />
+        <a href="https://github.com/Sibikrish3000/movie-genre-classification" className="work__img">
+          <img src="assets/img/datacheck.png" alt="" />
           <div className="overlay-text">Movie&nbsp;Genre Classification</div>
         </a>
         <a href="#works" className="work__img">

@@ -97,7 +97,7 @@ const Contact = () => {
             sitekey="6Lf15nwqAAAAAFPGUOE5N9U-TaoXhPS3iE7vujFo"
             onChange={() => setIsHuman(true)}
           />
-          <button type="submit" disabled={!message} className="contact__button button">
+          <button type="submit" disabled={!message || !isHuman} className="contact__button button">
             Submit
           </button>
         </form>

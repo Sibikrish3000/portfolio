@@ -23,13 +23,13 @@ const Home = () => {
           </div>
           <div className="home__social">
             <a href="https://www.linkedin.com/in/sibikrish3000" className="home__social-icon" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/svg/linkedin.svg" fill="currentColor" />
+              <img src="./assets/svg/linkedin.svg" fill="currentColor" alt=" " />
             </a>
             <a href="mailto:sibikrish2005@gmail.com" className="home__social-icon">
-              <img src="./assets/svg/gmail.svg" fill="currentColor" />
+              <img src="./assets/svg/gmail.svg" fill="currentColor" alt=" "/>
             </a>
             <a href="https://github.com/Sibikrish3000" className="home__social-icon" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/svg/github.svg" fill="currentColor" />
+              <img src="./assets/svg/github.svg" fill="currentColor" alt=" "/>
             </a>
           </div>
 
