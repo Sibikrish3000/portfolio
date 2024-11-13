@@ -136,7 +136,8 @@ img {
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: #fff;
+  background-color: #ffffff63;
+  backdrop-filter: blur(6px);
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
 }
 
@@ -149,6 +150,10 @@ img {
   font-weight: var(--font-semi);
 }
 @media screen and (max-width: 767px) {
+  .l-header {
+    backdrop-filter: none;
+    background-color: #ffffffde;
+  }
   .nav__menu {
     position: fixed;
     top: var(--header-height);
@@ -156,7 +161,8 @@ img {
     width: 80%;
     height: 100%;
     padding: 2rem;
-    background-color: var(--second-color);
+    backdrop-filter: blur(6px);
+    background-color: #0d1730fc;
     transition: 0.5s;
   }
 }
@@ -401,9 +407,9 @@ img {
 }
 
 contact__button button, button:disabled {
-  filter: brightness(0.8);
-  cursor: not-allowed;
-}
+    filter: brightness(0.8);
+    cursor: not-allowed;
+  }
 
 /* ===== FOOTER =====*/
 .footer {
