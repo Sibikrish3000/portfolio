@@ -57,6 +57,8 @@ jobs:
         run: |
           export CI=false
           yarn run build
+          env:
+          REACT_APP_AUTH_TOKEN= ${{secrets.REACT_APP_AUTH_TOKEN}}
 
 
       - name: Upload artifact
