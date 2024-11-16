@@ -1,5 +1,3 @@
-# .github/workflows/deploy.yml
-
 name: Deploy React App to GitHub Pages
 
 on:
@@ -32,32 +30,19 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: yarn install
+      - name: Install Yarn
         run: npm install -g yarn
 
       - name: Install dependencies
         run: yarn install
 
-      
-      - name: yarn info
-        run: yarn info
-
-      - name: yarn add
-        run: yarn add yarn
-
-      - name: yarn upgrade 
-        run: yarn upgrade yarn
-
-      - name: node option 
-        run: export NODE_OPTIONS=--openssl-legacy-provider 
-      - name: skip preflight 
-        run: export SKIP_PREFLIGHT_CHECK=true
+      - name: Set environment variables
+        run: echo "REACT_APP_AUTH_TOKEN=${{ secrets.REACT_APP_AUTH_TOKEN }}" >> $GITHUB_ENV
 
       - name: Build the React app
         run: |
           export CI=false
           yarn run build
-
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
