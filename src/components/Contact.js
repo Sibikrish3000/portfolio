@@ -20,8 +20,10 @@ const Contact = () => {
       message: document.getElementById('message').value,
     };
 
-    const bearerToken = 'Black-Swordsman';
+    //console.log("ENV VARIABLES:", process.env);
 
+    const bearerToken = process.env.REACT_APP_AUTH_TOKEN;
+    //console.log(`AUTH_TOKEN: ${bearerToken}`);
     try {
       const response = await fetch("https://automated-email-sibikrish.vercel.app/send-email", {
         method: "POST",
