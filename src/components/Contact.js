@@ -94,7 +94,7 @@ const Contact = () => {
     const bearerToken = process.env.REACT_APP_AUTH_TOKEN;
     console.time('fetchRequest');
     try {
-      const response = await fetch('https://sibikrish3000.github.io/send-email', {
+      const response = await fetch('https://automated-email-sibikrish.vercel.app/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
