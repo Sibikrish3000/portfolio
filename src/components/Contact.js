@@ -185,7 +185,7 @@ const Contact = () => {
               console.log('CAPTCHA validated at', new Date().toISOString());
             }}
           />
-          <button type="submit" disabled={!message} className="contact__button button" >
+          <button type="submit" disabled={!message || !isHuman} className="contact__button button" >
           {loading ? 'Submitting...' : 'Submit'}
           </button>
         </form>
