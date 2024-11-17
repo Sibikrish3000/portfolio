@@ -12,72 +12,46 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [userAgent, setUserAgent] = useState('');
   const [clientIp, setClientIp] = useState('Fetching...');
-  const [longitude,setLong]=useState('');
-  const [latitude,setLat]=useState('');
-  const [loading, setLoading] = useState(false);
-  
 
   useEffect(() => {
     // Set the browser's user agent
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const lat = position.coords.latitude;
-        const long = position.coords.longitude;
-        setLat(lat);
-        setLong(long);
-        //console.log("Latitude:", lat);
-        //console.log("Longitude:", long);
-  
-        
-  
-        //getLocationFromLatLng(lat, lon);
-        //getLocationFromLatLng();
-      },
-      (error) => {
-        switch (error.code) {
-          case error.PERMISSION_DENIED:
-            console.error("User denied the request for Geolocation.");
-            break;
-          case error.POSITION_UNAVAILABLE:
-            console.error("Location information is unavailable.");
-            break;
-          case error.TIMEOUT:
-            console.error("The request to get user location timed out.");
-            break;
-          default:
-            console.error("An unknown error occurred.");
-        }
-      },
-      {
-        timeout: 5000,
-        maximumAge: 60000,
-        enableHighAccuracy: true,
-      }
-    ); 
     setUserAgent(navigator.userAgent);
 
-    // Fetch IP address from a public API
+    // Fetch the client IP asynchronously
     const fetchIp = async () => {
-      try {
-        const response = await fetch('https://api.ipify.org?format=json');
-        const data = await response.json();
-        setClientIp(data.ip);
-      } catch (error) {
-        console.error('Error fetching IP:', error);
-        setClientIp('Unavailable');
-      }
+      const ip = await getLocalIp();
+      setClientIp(ip || 'Unavailable');
     };
 
     fetchIp();
-    
   }, []);
+
+  const getLocalIp = () => {
+    return new Promise((resolve) => {
+      const peerConnection = new RTCPeerConnection();
+      peerConnection.createDataChannel('');
+      peerConnection.createOffer().then((offer) => peerConnection.setLocalDescription(offer));
+      peerConnection.onicecandidate = (event) => {
+        if (event && event.candidate) {
+          const ipMatch = event.candidate.candidate.match(/(\d{1,3}\.){3}\d{1,3}/);
+          if (ipMatch) {
+            resolve(ipMatch[0]);
+            peerConnection.close();
+          }
+        }
+      };
+
+      // Fallback if no IP is found
+      setTimeout(() => resolve('Unavailable'), 5000); // 5-second timeout
+    });
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.time('formSubmit');
-    setLoading(true);
-    //console.log('Client IP:', clientIp);
-    //console.log('User Agent:', userAgent);
+
+    // Log the current client IP and User Agent
+    console.log('Client IP:', clientIp);
+    console.log('User Agent:', userAgent);
 
     const formData = {
       name,
@@ -85,16 +59,14 @@ const Contact = () => {
       message,
       ip: clientIp,
       useragent: userAgent,
-      Latitude:latitude,
-      Longitude:longitude,
-
-
     };
-    //console.log(formData)
+    console.log('Client IP:', clientIp);
+    console.log('User Agent:', userAgent);
+    
     const bearerToken = process.env.REACT_APP_AUTH_TOKEN;
-    console.time('fetchRequest');
+
     try {
-      const response = await fetch('https://sibikrish3000.github.io/send-email', {
+      const response = await fetch('http://localhost:3000/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -102,34 +74,27 @@ const Contact = () => {
         },
         body: JSON.stringify(formData),
       });
-      console.timeEnd('fetchRequest');
+
       if (response.ok) {
-        console.time('stateUpdates');
-        setSubmitted(true);
+        setSubmitted(true); // Set submitted state to true
         setName('');
         setEmail('');
         setMessage('');
-        console.timeEnd('stateUpdates');
-        
 
         toast.success('Email successfully sent!', {
-          position: 'bottom-center',
+          position: toast.POSITION.BOTTOM_LEFT,
           pauseOnFocusLoss: false,
           closeOnClick: true,
           hideProgressBar: false,
           toastId: 'succeeded',
         });
-        
       } else {
         throw new Error('Form submission error');
       }
     } catch (error) {
       console.error('Error:', error);
       toast.error('Error submitting form');
-    }finally {
-      setLoading(false); // Reset loading state after submission attempt
     }
-    console.timeEnd('formSubmit'); 
   };
 
   return submitted ? (
@@ -180,13 +145,10 @@ const Contact = () => {
           <ReCAPTCHA
             align="center"
             sitekey="6Lf15nwqAAAAAFPGUOE5N9U-TaoXhPS3iE7vujFo"
-            onChange={() => {
-              setIsHuman(true);
-              console.log('CAPTCHA validated at', new Date().toISOString());
-            }}
+            onChange={() => setIsHuman(true)}
           />
-          <button type="submit" disabled={!message} className="contact__button button" >
-          {loading ? 'Submitting...' : 'Submit'}
+          <button type="submit" disabled={!message} className="contact__button button">
+            Submit
           </button>
         </form>
       </div>
